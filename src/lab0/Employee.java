@@ -1,5 +1,6 @@
 package lab0;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -46,7 +47,10 @@ public class Employee {
         return daysVacation;
     }
 
-    public void setDaysVacation(int daysVacation) {
+    public void setDaysVacation(int daysVacation) throws IllegalArgumentException {
+        if (daysVacation < 0 || daysVacation > 35){
+            throw new IllegalArgumentException("Enter a number of days between 1 and 35");
+        }
         this.daysVacation = daysVacation;
     }
 
@@ -54,7 +58,10 @@ public class Employee {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)throws IllegalArgumentException {
+        if (firstName == null){
+            throw new IllegalArgumentException("First Name is required");
+        }
         this.firstName = firstName;
     }
 
@@ -62,7 +69,12 @@ public class Employee {
         return hireDate;
     }
 
-    public void setHireDate(Date hireDate) {
+    public void setHireDate(Date hireDate) throws IllegalArgumentException {
+        Calendar c = Calendar.getInstance();
+        Date d = c.getTime();
+        if(hireDate.before(d)){
+            throw new IllegalArgumentException("Hire date cannot be before today's date");
+        }
         this.hireDate = hireDate;
     }
 
@@ -70,7 +82,10 @@ public class Employee {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws IllegalArgumentException  {
+        if (lastName == null){
+            throw new IllegalArgumentException("Last Name is required");
+        }
         this.lastName = lastName;
     }
 
@@ -78,7 +93,10 @@ public class Employee {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
+    public void setSsn(String ssn)throws IllegalArgumentException {
+        if (ssn == null || ssn.length() < 9 ){
+            throw new IllegalArgumentException("A valid social security number with 9 digits is required");
+        }
         this.ssn = ssn;
     }
     
