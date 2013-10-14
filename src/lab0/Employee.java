@@ -21,6 +21,8 @@ import java.util.Date;
  */
 public class Employee {
     public static final int MAX_VACATION_DAYS = 28;
+    public static final int ZERO = 0;
+    public static final int SSN_MIN_LENGTH = 9;
     private String firstName;
     private String lastName;
     private String ssn;
@@ -48,8 +50,8 @@ public class Employee {
     }
 
     public void setDaysVacation(int daysVacation) throws IllegalArgumentException {
-        if (daysVacation < 0 || daysVacation > 35){
-            throw new IllegalArgumentException("Enter a number of days between 1 and 35");
+        if (daysVacation < ZERO || daysVacation > MAX_VACATION_DAYS){
+            throw new IllegalArgumentException("Enter a number of days between 1 and 28");
         }
         this.daysVacation = daysVacation;
     }
@@ -94,7 +96,7 @@ public class Employee {
     }
 
     public void setSsn(String ssn)throws IllegalArgumentException {
-        if (ssn == null || ssn.length() < 9 ){
+        if (ssn == null || ssn.length() < SSN_MIN_LENGTH ){
             throw new IllegalArgumentException("A valid social security number with 9 digits is required");
         }
         this.ssn = ssn;
