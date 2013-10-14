@@ -27,9 +27,20 @@ public class Challenge1 {
         JOptionPane.showMessageDialog(null, msg);
     }
     
-    public String extractLastName(String fullName) {
-        String[] nameParts = fullName.split(" ");
+    public String extractLastName(String fullName) throws IllegalArgumentException {
+        if (fullName == null){
+            throw new IllegalArgumentException("Full name is required");
+        }
+        
+        try{
+            String[] nameParts = fullName.split(" ");
+        }
+        catch{
+            
+            
+        }
         return nameParts[LAST_NAME_IDX];
+        
     }
 
 }
