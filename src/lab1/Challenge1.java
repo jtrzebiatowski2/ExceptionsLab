@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  * @version 1.00
  */
 public class Challenge1 {
-    private static final int LAST_NAME_IDX = 1;
 
     public static void main(String[] args) {
         Challenge1 app = new Challenge1();
@@ -28,18 +27,14 @@ public class Challenge1 {
     }
     
     public String extractLastName(String fullName) throws IllegalArgumentException {
-        if (fullName == null){
+        if (fullName == null || fullName.length() == 0){
             throw new IllegalArgumentException("Full name is required");
         }
         
-        try{
-            String[] nameParts = fullName.split(" ");
-        }
-        catch{
-            
-            
-        }
-        return nameParts[LAST_NAME_IDX];
+       String[] nameParts = fullName.split(" ");
+       
+       //Returns the last string split off from the full name
+       return nameParts[nameParts.length - 1];
         
     }
 
